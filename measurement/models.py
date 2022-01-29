@@ -23,6 +23,7 @@ class Measurement(models.Model):
     sensor = models.ForeignKey(Sensor, on_delete=models.CASCADE, related_name='measurements', verbose_name='датчик')
     temperature = models.FloatField(verbose_name='температура')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='дата и время измерения')
+    photo = models.ImageField(blank=True, null=True, verbose_name='фото')
 
     def __str__(self):
         return f'{self.created_at}: {self.sensor.name} {self.temperature}'
